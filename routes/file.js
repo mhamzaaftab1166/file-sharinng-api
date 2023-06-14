@@ -3,7 +3,7 @@ import upload from "../middlewares/upload.js";
 import File from "../models/file.js";
 const router = express.Router();
 
-router.get("/fi/:id", async (req, res) => {
+router.get("/file/:id", async (req, res) => {
   try {
     const file = await File.findById(req.params.id);
     if (!file)
@@ -24,7 +24,7 @@ router.post("/upload", upload.single("file"), async (req, res) => {
   });
   try {
     await file.save();
-    res.send({ path: `http://localhost:8000/fi/${file._id}` });
+    res.send({ path: `http://localhost:8000/api/file/${file._id}` });
   } catch (e) {
     res.status(500).send("somethinmg failed.");
   }

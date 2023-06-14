@@ -4,5 +4,5 @@ import cors from "cors";
 export default function routes(app) {
   app.use(express.json());
   app.use(cors());
-  app.use("/", file);
+  app.use("/api", file);
 }
