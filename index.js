@@ -1,5 +1,10 @@
 import express from "express";
+import initializeDB from "./startup/db.js";
+import routes from "./startup/routes.js";
 const app = express();
 
-const port = process.env.PORT || 5000;
-app.listen(5000, () => console.log(`listening on the port ${port}...`));
+routes(app);
+initializeDB();
+
+const port = process.env.PORT || 8000;
+app.listen(port, () => console.log(`listening on the port ${port}...`));
